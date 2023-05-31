@@ -1,31 +1,37 @@
 import React from "react";
 import { Link, Head } from "@inertiajs/react";
+import Navbar from "@/Components/Navbar";
+import NewsList from "@/Components/Homepage/NewsList";
 
 export default function Homepage(props) {
-    console.log(props);
     return (
-        <div className="flex justify-center items-center min-h-screen bg-neutral-800">
+        <div className="min-h-screen bg-slate-50">
             <Head title={props.title} />
-            <p> {props.description}</p>
-            <div>
-                {props.news ? (
-                    props.news.map((data, i) => {
-                        return (
-                            <div
-                                key={i}
-                                className="p-4 m-2 bg-white text-black"
-                            >
-                                <p className="text-2xl"> {data.title}</p>
-                                <p> {data.description}</p>
-                                <p className="text-small"> {data.category}</p>
-                                <p className="text-small"> {data.author}</p>
-                            </div>
-                        );
-                    })
-                ) : (
-                    <p>Saat ini belum ada berita</p>
-                )}
-            </div>
+            <Navbar className="" />
+
+            <NewsList news={props.news} />
+            <NewsList news={props.news} />
+            <NewsList news={props.news} />
+            <div></div>
         </div>
     );
 }
+
+// {props.news ? (
+//     props.news.map((data, i) => {
+//         return (
+//             <div
+//                 key={i}
+//                 className="p-4 m-2 bg-white text-black shadow-md rounded-md"
+//             >
+//                 <p className="text-2xl"> {data.title}</p>
+//                 <p className="tex-sm"> {data.description}</p>
+//                 <i> Category : {data.category}</i>
+//                 <br></br>
+//                 <i className=""> Author : {data.author}</i>
+//             </div>
+//         );
+//     })
+// ) : (
+//     <p>Saat ini belum ada berita</p>
+// )}
